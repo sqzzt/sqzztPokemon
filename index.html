@@ -1,21 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Pokedex</title>
     <link rel="stylesheet" href="./styles.css" />
-    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <header>
+      <div class="header ">
+        <img class="logoTop scale-in-center"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png"
+      <div class="buttonContainer">
+            <nav class="nav">
+                <div class="filters">
+                    <img onclick="filterPokemons('normal')" class="Normal" src="./normal.png" height="60" width="60">
+                    <span class="below">Normal</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('poison')" class="Normal" src="./poison.png" height="60" width="60">
+                    <span class="below">Poison</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('fighting')" class="Normal" src="./fighting.png" height="60" width="60">
+                    <span class="below">fighting</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('flying')" class="Normal" src="./flight.png" height="60" width="60">
+                    <span class="below">flying</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('ground')" class="Normal" src="./ground.png" height="60" width="60">
+                    <span class="below">ground</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('rock')" class="Normal" src="./rock.png" height="60" width="60">
+                    <span class="below">rock</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('bug')" class="Normal" src="./bug.png" height="60" width="60">
+                    <span class="below">bug</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('ghost')" class="Normal" src="./ghost.png" height="60" width="60">
+                    <span class="below">ghost</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('steel')" class="Normal" src="./steel.png" height="60" width="60">
+                    <span class="below">steel</span>
+                </div>
+                <div class="filters">
+                    <img onclick="filterPokemons('fire')" class="Normal" src="./fire.png" height="60" width="60">
+                    <span class="below">fire</span>
+                </div>
+            </nav>
+
+                    <nav class="nav">
+                        <div class="filters">
+                            <img onclick="filterPokemons('water')" class="Normal" src="./water.png" height="60" width="60">
+                            <span class="below">water</span>
+                        </div>
+                        <div class="filters">
+                            <img onclick="filterPokemons('grass')" class="Normal" src="./grass.png" height="60" width="60">
+                            <span class="below">grass</span>
+                        </div>
+                        <div class="filters">
+                            <img onclick="filterPokemons('electric')" class="Normal" src="./electric.png" height="60" width="60">
+                            <span class="below">electric</span>
+                        </div>
+                        <div class="filters">
+                            <img onclick="filterPokemons('psychic')" class="Normal" src="./psychic.png" height="60" width="60">
+                            <span class="below">psychic</span>
+                        </div>
+                        <div class="filters">
+                            <img onclick="filterPokemons('ice')" class="Normal" src="./ice.png" height="60" width="60">
+                            <span class="below">ice</span>
+                        </div>
+                        <div class="filters">
+                            <img onclick="filterPokemons('dragon')" class="Normal" src="./dragon.png" height="60" width="60">
+                            <span class="below">dragon</span>
+                        </div>
+                        
+                        <div class="filters">
+                            <img onclick="filterPokemons('fairy')" class="Normal" src="./fairy.png" height="60" width="60">
+                            <span class="below">fairy</span>
+                        </div>
+                        
+                        <div class="filters">
+                            <img onclick="refreshPage()" class="Normal" src="./fairy.png" height="60" width="60">
+                            <span class="below">Reset</span>
+                        </div>
+
+                </nav>
+            </div>
+        </div>
+
+      </div>
+      
+    </header>
+
     <div class="container">
-        <h1>Pokedex</h1>
-        <ol id="pokedex"></ol>
+      <h1>Pokedex</h1>
+      <ol id="pokedex"></ol>
+      <div id="card"></div>
     </div>
-    <script src="./pokedex.js"></script>
-</body>
 
+    <script src="./pokedex.js"></script>
+  </body>
 </html>

@@ -1,9 +1,101 @@
+.header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav{
+  width: 100%;
+  display: flex;
+  padding-top: 1%;
+  
+  justify-content: center;
+
+}
+.below {
+  color: black;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+.filters{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5%;
+  
+}
+
+
+.filters:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+
+
+
+
+.scale-in-center {
+	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          width: auto;
+          display: flex;
+          justify-content: center;
+}
+
+ @-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+.logoTop {
+  width: 40%;
+  padding-top: 3%;
+
+}
+
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
 
 body {
+  width: 100%;
   background-color: #f4f4f4;
   margin: 0;
   font-family: rubik;
   color: white;
+
 }
 .container {
   padding: 40px;
@@ -61,4 +153,5 @@ p {
   80% {
     transform: translateY(-0px);
   }
-}
+}  
+
