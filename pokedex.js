@@ -32,7 +32,7 @@ var lista = async () => {
       console.log(pokemons);
 
       //funcion para imprimir
-      //printPokedex(pokemons);
+      printPokedex(pokemons);
     }
 
     //   pokemonUrl.push(element);
@@ -50,6 +50,9 @@ function printPokedex(pokemons) {
     <p>Type : ${pokemons.type}</p>
     <p>Abilities : ${pokemons.Abilities}</p>
     <p>Hp base : ${pokemons.Hp}</p>
+    <p>Weakness : ${pokemons.Weakness}</p>
+    <p>Resistance : ${pokemons.Resistance}</p>
+
     `;
   olPrint.appendChild(tempPokemonDiv);
 }
