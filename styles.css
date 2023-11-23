@@ -173,6 +173,7 @@ form {
   display: flex;
   align-items: center;
   column-gap: 15px;
+  padding-top: 4%;
 }
 .card-footer img {
   width: 25px;
@@ -436,30 +437,35 @@ form {
   .fightContainer {
 
     width: 100%;
-    height: 800px;
+    height: 100%;
     position: fixed;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    background-color: #00b4cc;
+    background-color: rgba(200 200 200 / 60%);
     z-index: 2;
   }
   .closeDiv {
-
+    background-image: url(./fightbackground.webp) ;
+    background-repeat: no-repeat;
+    background-repeat: round ;
     width: 80%;
     height: 80%;
-    background-color: #0018b8;
+    background-color: grey;
     z-index: 3;
     display: flex;
     justify-content:center ;
     align-items: center;
+    border-radius: 40px;
   }
 
   .pokemon1 {
+    display: flex;
+    justify-content: center;
     width: 30%;
     height: 80%;
-    background-color: #b81c00;
+    
     z-index: 4;
     margin: 1%;
   }
@@ -470,7 +476,8 @@ form {
     z-index: 4;
     margin: 1%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: center;
     
   }
   .divTexto{
@@ -485,7 +492,9 @@ form {
   .pokemon2 {
     width: 30%;
     height: 80%;
-    background-color: #b81c00;
+    display: flex;
+    justify-content: center;
+    
     z-index: 4;
     margin: 1%;
   }
@@ -496,3 +505,86 @@ form {
   left: 83%;
   top: 11%;
 }
+
+.cardforFight {
+  width: 280px;
+  height: 510px;
+  border-radius: 10px;
+  background-color: hsl(216, 50%, 16%);
+  padding: 20px;
+  margin: 2px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ________________________________________ */
+
+.forFightButton{
+  text-align:center;
+  background-color:#ffcc8e;
+  width: 100%;
+  height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.fightButton{
+  position:relative;
+  display:inline-block;
+  margin:20px;
+  width: 90%;
+  height: 40%;
+
+}
+
+.fightButton a{
+color:white;
+font-family:Helvetica, sans-serif;
+font-weight:bold;
+font-size:36px;
+text-align: center;
+text-decoration:none;
+background-color:#FFA12B;
+display:block;
+position:relative;
+padding:20px 40px;
+
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+text-shadow: 0px 1px 0px #000;
+filter: dropshadow(color=#000, offx=0px, offy=1px);
+
+-webkit-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+-moz-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+.fightButton a:active{
+top:10px;
+background-color:#F78900;
+
+-webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+-moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
+box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+.fightButton:after{
+content:"";
+height:100%;
+width:100%;
+padding:4px;
+position: absolute;
+bottom:-15px;
+left:-4px;
+z-index:-1;
+background-color:#2B1800;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+

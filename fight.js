@@ -29,12 +29,6 @@ var lista = async () => {
         Weakness: typeResult.damage_relations.double_damage_from
           .map((weak) => weak.name)
           .join(", "),
-        doubleto: typeResult.damage_relations.double_damage_to
-          .map((dbldmg) => dbldmg.name)
-          .join(", "),
-        halfdmgto: typeResult.damage_relations.double_damage_to
-          .map((hlfdmg) => hlfdmg.name)
-          .join(", "),
         Resistance: typeResult.damage_relations.half_damage_from
           .map((halfDmg) => halfDmg.name)
           .join(", "),
@@ -49,7 +43,7 @@ var lista = async () => {
     console.error(error);
   }
 };
-//console.log(pokemonData);
+
 //Filtered pokemons fuction _____________________________________________________________________________________________________________________//
 function filterPokemons(type) {
   var filteredPokemons = pokemonData.filter((pokemon) =>
@@ -99,6 +93,7 @@ function printPokedex(pokemonData) {
 </div>
 `;
     olPrint.appendChild(tempPokemonDiv);
+    console.log(typeof pokemon);
   });
 
   //  button to add this Pokemon to the var pokemon
@@ -125,84 +120,59 @@ function searchInput() {
   printPokedex(filteredPokemons);
 }
 
-// Creation of divs, button for fight________________________________________________________//
-
+// Creation of divs and buttons ________________________________________________________//
 function fightDiv(pokemon) {
-  var pokemonFight1 = document.querySelector(".fullContainer");
+  // var test = document.querySelector("#fightContainer");
+  // var closeButton = document.createElement("button");
+  // closeButton.setAttribute("class", "beautiful-button");
+  // closeButton.innerText = "Close";
+  // var closeBot = document.querySelector("beautiful-button");
+  // closeButton.setAttribute("onclick", "closeDiv()");
+  // var fight = document.createElement("div");
+  // var baseDiv = document.createElement("div");
+  // baseDiv.setAttribute("class", "baseDiv");
+  // fight.setAttribute("class", "letsFight");
+  // test.appendChild(baseDiv);
+  // baseDiv.appendChild(fight);
+  // fight.appendChild(closeButton);
 
+  var pokemonFight1 = document.querySelector(".fullContainer");
+  
   pokemonFight1.innerHTML = `
   <div class = "fightContainer">
     <div class = "closeDiv">
       <div class = "forButton"> <button class = "beautiful-button" onclick = "closeDiv()" ><span>Close</span></button> </div>
-      <div class = "pokemon1"><div class="cardforFight">
-        <div class="card-img">
-          <img src="${pokemon1.imgSrc}" alt="" srcset="">
-        </div>
-        <div class="card-body">
-          <h4>${pokemon1.Name.toUpperCase()}</h4>
-          <p>Weakness: ${pokemon1.Weakness}</p>
-          <p>Abilities: ${pokemon1.Abilities}</p>
-            <div class="card-body-footer">
-              <div>HP ${pokemon1.Hp}</div>  
-              <div>Attk ${pokemon1.attk}</div> 
-              <div>Def  ${pokemon1.def}</div>
-            </div>
-
-          </div>
-          <div class="card-footer">
-    <img src="https://c0.klipartz.com/pngpicture/569/963/gratis-png-ilustracion-de-pokeball-ash-ketchum-pokeball-s-thumbnail.png" alt="">
-    <span> Type: ${pokemon1.type} </span>
-</div>
-      </div>
-      </div>
-      <div class = "central">
-        <div class = "forFightButton">
-          <button class = "fightButton"><span>Fight</span></button>
-        </div>
-        <div class ="divTexto"></div>
-      </div>
-      <div class = "pokemon2">
-        <div class="cardforFight">
-          <div class="card-img">
-            <img src="${pokemon2.imgSrc}" alt="" srcset="">
-          </div>
-          <div class="card-body">
-            <h4>${pokemon2.Name.toUpperCase()}</h4>
-            <p>Weakness: ${pokemon2.Weakness}</p>
-            <p>Abilities: ${pokemon2.Abilities}</p>
-            <div class="card-body-footer">
-              <div>HP ${pokemon2.Hp}</div>  
-              <div>Attk ${pokemon2.attk}</div> 
-              <div>Def  ${pokemon2.def}</div>
-            </div>
-
-          </div>
-          <div class="card-footer">
-    <img src="https://c0.klipartz.com/pngpicture/569/963/gratis-png-ilustracion-de-pokeball-ash-ketchum-pokeball-s-thumbnail.png" alt="">
-    <span> Type: ${pokemon2.type} </span>
-</div>
-        </div>
-      </div>
+      <div class = "pokemon1"></div>
+      <div class = "central"><div class ="divTexto"></div></div>
+      <div class = "pokemon2"></div>
     </div>
   </div>
 
     `;
-}
+  }
+
+
 
 // Remove div fuctions_______________________________________________________________//
 function closeDiv() {
   var selector = document.querySelector(".fightContainer");
   selector.remove();
   //closeBack();
-}
+    
+
+  }
+
+// function closeBack() {
+//   var selector = document.querySelector(".fightContainer");
+//   selector.style.display = "none"
+//   selector.style.display = "initial"
+
+// };
 
 // add pokemons to fight________________________________________________________________
-var weakness = [];
-var double = [];
 
 var pokemon1 = 0;
 var pokemon2 = 0;
-var fightActive = false;
 
 function addToFight(pokemon) {
   if (pokemon1 === 0) {
@@ -213,29 +183,17 @@ function addToFight(pokemon) {
     console.log("Pokemon 2 added to the fight:", pokemon);
 
     // Ambos pokémons han sido añadidos, puedes realizar acciones adicionales aquí si es necesario
-    function alreadyAdd() {
-      if (pokemon1 && pokemon2) {
-        console.log("los 2 pokemon estan agregados");
-        fightDiv();
-      }
+    if (pokemon1 && pokemon2) {
+      console.log("los 2 pokemon estan agregados");
+      fightDiv();
     }
 
-    alreadyAdd();
+    // Iniciar la pelea, mostrar información sobre la pelea, etc.
 
-    var click = document.querySelector(".fightButton");
-    click.addEventListener("click", (Event) => {
-      var effectiveHPPokemon1 = 0.01 * pokemon1.Hp * pokemon1.def + pokemon1.Hp;
-      var effectiveHPPokemon2 = 0.01 * pokemon2.Hp * pokemon2.def + pokemon2.Hp;
-      var weakfrom = pokemon.Weakness;
-      var double = pokemon.double_damage_to;
-      var resistance = pokemon.resistance;
-      var halfto = pokemon.halfdmgto;
-
-      // Comparar los tipos
-
-      // function call on event
-      fightNow();
-    });
+    // Reiniciar pelea - codigo listo
+    //resetFight();
+  } else {
+    console.log("Both pokemons are already added to the fight!");
   }
 }
 
@@ -243,59 +201,60 @@ function resetFight() {
   // Reinicia las variables para la próxima pelea
   pokemon1 = 0;
   pokemon2 = 0;
-  fightActive = false;
   console.log("Fight reset. You can now add new pokemons to the fight.");
 }
 
 function addPokemonToFight(pokemon) {
-  // POKEMON ADD TO FIGHT
   addToFight(pokemon);
 }
 
+//_______________________________________________________________________________________________________________
 function dmgCalc(attack, defend) {
-  // CALCULATE DMG FUNCTION
-  var damage = Math.floor(attack.attk * 0.2);
-  console.log(`${attack.Name} deals ${damage} damage to ${defend.Name}`);
-  return damage;
-}
-
-function fightNow() {
-  //FIGHT FUNCTION
-  var effectiveHPPokemon1 = 0.01 * pokemon1.Hp * pokemon1.def + pokemon1.Hp;
-  var effectiveHPPokemon2 = 0.01 * pokemon2.Hp * pokemon2.def + pokemon2.Hp;
-
-
-  for (var i = 1; ; i++) {
-    console.log(`Battle begin round ${i}`);
-
-    effectiveHPPokemon2 -= dmgCalc(pokemon1, pokemon2);
-    if (effectiveHPPokemon2 <= 0) {
-      console.log(`${pokemon2.Name} defeat ${pokemon1.Name} win`);
-      resetFight();
-      hideButton();
-      break;
-    }
-
-    // Attack from pokemon2 to pokemon1
-    effectiveHPPokemon1 -= dmgCalc(pokemon2, pokemon1);
-    if (effectiveHPPokemon1 <= 0) {
-      console.log(`${pokemon1.Name} defeat ${pokemon2.Name} win`);
-      resetFight();
-      hideButton();
-      break;
+    var damage = Math.floor(attack.attk * 0.2);
+    console.log(`${attack.Name} deals ${damage} damage to ${defend.Name}`);
+    return damage;
+  }
+  
+  function fightNow() {
+    // Attack from pokemon1 to pokemon2
+    for (var i = 1; ; i++) {
+      console.log(`Battle begin round ${i}`);
+  
+      effectiveHPPokemon2 -= dmgCalc(pokemon1, pokemon2);
+      if (effectiveHPPokemon2 <= 0) {
+        console.log(`${pokemon2.Name} defeat ${pokemon1.Name} win`);
+      }
+  
+      // Attack from pokemon2 to pokemon1
+      effectiveHPPokemon1 -= dmgCalc(pokemon2, pokemon1);
+      if (effectiveHPPokemon1 <= 0) {
+        console.log(`${pokemon1.Name} defeat ${pokemon2.Name} win`);
+      }
     }
   }
-}
+  //_____________________________________________________________
 
-function hideButton(){
-var hideButton = document.querySelector(".fightButton");
-hideButton.style.display = "none";
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var init = async () => {
   await lista();
   printPokedex(pokemonData);
-  
+  //window.onload = printPokedex;
+  //fightDiv();
+  //console.log(pokemonData);
+  //fightDiv();
 };
 
 init();
