@@ -26,16 +26,16 @@ var lista = async () => {
           .map((skill) => skill.ability.name)
           .join(", "),
         type: pokemonResult.types.map((type) => type.type.name).join(", "),
-        Weakness: typeResult.damage_relations.double_damage_from
+        weakness: typeResult.damage_relations.double_damage_from
           .map((weak) => weak.name)
           .join(", "),
         doubleto: typeResult.damage_relations.double_damage_to
           .map((dbldmg) => dbldmg.name)
           .join(", "),
-        halfdmgto: typeResult.damage_relations.double_damage_to
+        halfdmgto: typeResult.damage_relations.half_damage_to
           .map((hlfdmg) => hlfdmg.name)
           .join(", "),
-        Resistance: typeResult.damage_relations.half_damage_from
+        resistance: typeResult.damage_relations.half_damage_from
           .map((halfDmg) => halfDmg.name)
           .join(", "),
         imgSrc: pokemonResult.sprites.other.dream_world.front_default,
@@ -49,7 +49,7 @@ var lista = async () => {
     console.error(error);
   }
 };
-//console.log(pokemonData);
+console.log(pokemonData);
 //Filtered pokemons fuction _____________________________________________________________________________________________________________________//
 function filterPokemons(type) {
   var filteredPokemons = pokemonData.filter((pokemon) =>
@@ -84,7 +84,7 @@ function printPokedex(pokemonData) {
 </div>
   <div class="card-body">
       <h4>${pokemon.Name.toUpperCase()}</h4>
-      <p>Weakness: ${pokemon.Weakness}</p>
+      <p>weakness: ${pokemon.weakness}</p>
       <p>Abilities: ${pokemon.Abilities}</p>
       <div class="card-body-footer">
           <div>HP ${pokemon.Hp}</div>  
@@ -109,6 +109,7 @@ function printPokedex(pokemonData) {
       addPokemonToFight(pokemonData[index]);
     });
   });
+  
 }
 
 //Search fuction in the input _______________________________________________________________//
@@ -140,7 +141,7 @@ function fightDiv(pokemon) {
         </div>
         <div class="card-body">
           <h4>${pokemon1.Name.toUpperCase()}</h4>
-          <p>Weakness: ${pokemon1.Weakness}</p>
+          <p>weakness: ${pokemon1.weakness}</p>
           <p>Abilities: ${pokemon1.Abilities}</p>
             <div class="card-body-footer">
               <div>HP ${pokemon1.Hp}</div>  
@@ -215,7 +216,7 @@ function addToFight(pokemon) {
     // Ambos pokémons han sido añadidos, puedes realizar acciones adicionales aquí si es necesario
     function alreadyAdd() {
       if (pokemon1 && pokemon2) {
-        console.log("los 2 pokemon estan agregados");
+        console.log("Both pokemons already add");
         fightDiv();
       }
     }
@@ -226,15 +227,19 @@ function addToFight(pokemon) {
     click.addEventListener("click", (Event) => {
       var effectiveHPPokemon1 = 0.01 * pokemon1.Hp * pokemon1.def + pokemon1.Hp;
       var effectiveHPPokemon2 = 0.01 * pokemon2.Hp * pokemon2.def + pokemon2.Hp;
-      var weakfrom = pokemon.Weakness;
-      var double = pokemon.double_damage_to;
+      var weakfrom = pokemon.weakness;
+      var double = pokemon.doubleto;
       var resistance = pokemon.resistance;
       var halfto = pokemon.halfdmgto;
-
+      
+      console.log(weakfrom);
+      console.log(double);
+      console.log(resistance);
+      console.log(halfto);
       // Comparar los tipos
 
       // function call on event
-      fightNow();
+      //fightNow();  //FUNCION ACTIVAS EN CLICK --- activar
     });
   }
 }
